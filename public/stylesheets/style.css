@@ -1,7 +1,22 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.header
+{
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e5e5e5;
 }
-a {
-  color: #00b7ff;
+body
+{
+    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+}
+label,
+input
+{
+    vertical-align: middle;
+}
+label
+{
+    display: inline-block;
+
+    height: 100%;
 }

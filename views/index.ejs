@@ -1,13 +1,102 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>LeanEngine</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  <body>
-    <h1>LeanEngine</h1>
-    <p>这是 LeanEngine 的示例应用</p>
-    <p>当前时间：<%= currentTime %></p>
-    <p><a href="/todos">一个简单的「TODO 列表」示例</a></p>
-  </body>
+
+<head>
+  <title>基层党组织统计</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <h3>夷陵区区直机关工委基层党组织统计</h3>
+    </div>
+    <div class="row ">
+      <form class="form-horizontal" action="/" method="POST">
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="selectUnit">请选择您所在的单位</label>
+          <div class="col-sm-6">
+            <select class="form-control" id="selectUnit">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="jiguan" class="col-sm-2 control-label">机关党支部数</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="jiguan" placeholder="请填写单位所有的机关支部数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="guoyouqiye" class="col-sm-2 control-label">国有企业党支部数</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="guoyouqiye" placeholder="请填写单位所有的国有企业党支部数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="guoyouqiye" class="col-sm-2 control-label">国有企业党支部数</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="guoyouqiye" placeholder="请填写单位所有的国有企业党支部数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="feigongjingji" class="col-sm-2 control-label">非公经济组织党支部数</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="feigongjingji" placeholder="请填写单位所有的非公经济组织党支部数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="shehuizuzhi" class="col-sm-2 control-label">社会组织党支部数</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="shehuizuzhi" placeholder="请填写单位所有的社会组织党支部数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="xuexiao" class="col-sm-2 control-label">学校党支部数</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="xuexiao" placeholder="请填写单位所有的学校党支部数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="yiyuan" class="col-sm-2 control-label">医院党支部数</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="yiyuan" placeholder="请填写单位所有的医院党支部数">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-5 col-sm-offset-2">
+            <button type="submit" class="btn btn-success btn-lg">点击提交</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <table class="table table-striped">
+        <tr>
+          <th>单位名称</th>
+          <th>基层党支部总数</th>
+          <th>机关党支部数</th>
+          <th>国有企业党支部数</th>
+          <th>非公经济组织党支部数</th>
+          <th>社会组织党支部数</th>
+          <th>学校党支部数</th>
+          <th>医院党支部数</th>
+        </tr>
+        <tr>
+          <td>区食药监局</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
 </html>
