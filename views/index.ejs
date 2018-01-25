@@ -17,59 +17,53 @@
       <h3>夷陵区区直机关工委基层党组织统计</h3>
     </div>
     <div class="row ">
-      <form class="form-horizontal" action="/" method="POST">
+      <form class="form-horizontal" action="/organization" method="POST">
         <div class="form-group">
           <label class="col-sm-2 control-label" for="selectUnit">请选择您所在的单位</label>
           <div class="col-sm-6">
-            <select class="form-control" id="selectUnit">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select name="id" class="form-control" id="selectUnit">
+              <% for(let i=0; i<organization.length; i++) {%>
+                <option value="<%= organization[i].id%>">
+                  <%= organization[i].get('name') %>
+                </option>
+                <% } %>
             </select>
           </div>
         </div>
         <div class="form-group">
           <label for="jiguan" class="col-sm-2 control-label">机关党支部数</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="jiguan" placeholder="请填写单位所有的机关支部数">
+            <input type="text" class="form-control" name="jiguan" id="jiguan" placeholder="请填写单位所有的机关支部数">
           </div>
         </div>
         <div class="form-group">
           <label for="guoyouqiye" class="col-sm-2 control-label">国有企业党支部数</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="guoyouqiye" placeholder="请填写单位所有的国有企业党支部数">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="guoyouqiye" class="col-sm-2 control-label">国有企业党支部数</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="guoyouqiye" placeholder="请填写单位所有的国有企业党支部数">
+            <input type="text" class="form-control" name="guoyouqiye" id="guoyouqiye" placeholder="请填写单位所有的国有企业党支部数">
           </div>
         </div>
         <div class="form-group">
           <label for="feigongjingji" class="col-sm-2 control-label">非公经济组织党支部数</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="feigongjingji" placeholder="请填写单位所有的非公经济组织党支部数">
+            <input type="text" class="form-control" name="feigongjingji" id="feigongjingji" placeholder="请填写单位所有的非公经济组织党支部数">
           </div>
         </div>
         <div class="form-group">
           <label for="shehuizuzhi" class="col-sm-2 control-label">社会组织党支部数</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="shehuizuzhi" placeholder="请填写单位所有的社会组织党支部数">
+            <input type="text" class="form-control" name="shehuizuzhi" id="shehuizuzhi" placeholder="请填写单位所有的社会组织党支部数">
           </div>
         </div>
         <div class="form-group">
           <label for="xuexiao" class="col-sm-2 control-label">学校党支部数</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="xuexiao" placeholder="请填写单位所有的学校党支部数">
+            <input type="text" class="form-control" name="xuexiao" id="xuexiao" placeholder="请填写单位所有的学校党支部数">
           </div>
         </div>
         <div class="form-group">
           <label for="yiyuan" class="col-sm-2 control-label">医院党支部数</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="yiyuan" placeholder="请填写单位所有的医院党支部数">
+            <input type="text" class="form-control" name="yiyuan" id="yiyuan" placeholder="请填写单位所有的医院党支部数">
           </div>
         </div>
         <div class="form-group">
@@ -91,9 +85,32 @@
           <th>学校党支部数</th>
           <th>医院党支部数</th>
         </tr>
-        <tr>
-          <td>区食药监局</td>
-        </tr>
+        <% for(let i=0; i<organization.length; i++) {%>
+          <tr>
+            <td>
+              <%= organization[i].get('name') %>
+            </td>
+            <td>10</td>
+            <td>
+              <%= organization[i].get('jiguan') %>
+            </td>
+            <td>
+              <%= organization[i].get('guoyouqiye') %>
+            </td>
+            <td>
+              <%= organization[i].get('feigongjingji') %>
+            </td>
+            <td>
+              <%= organization[i].get('shehuizuzhi') %>
+            </td>
+            <td>
+              <%= organization[i].get('xuexiao') %>
+            </td>
+            <td>
+              <%= organization[i].get('yiyuan') %>
+            </td>
+          </tr>
+          <% } %>
       </table>
     </div>
   </div>
