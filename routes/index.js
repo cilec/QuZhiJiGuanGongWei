@@ -9,7 +9,7 @@ const Organization = AV.Object.extend("Organization");
 // 查询获取数据
 router.get("/", async function(ctx) {
   const query = new AV.Query(Organization);
-  query.descending("id");
+  query.ascending("id");
   try {
     ctx.state.organization = await query.find();
   } catch (err) {
