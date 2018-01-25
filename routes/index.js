@@ -30,12 +30,24 @@ router.post("/", async function(ctx) {
   console.log(content);
   ctx.body = content;
   var organization = AV.Object.createWithoutData("Organization", content.id);
-  organization.set("jiguan", parseInt(content["jiguan"]));
-  organization.set("guoyouqiye", parseInt(content["guoyouqiye"]));
-  organization.set("feigongjingji", parseInt(content["feigongjingji"]));
-  organization.set("shehuizuzhi", parseInt(content["shehuizuzhi"]));
-  organization.set("xuexiao", parseInt(content["xuexiao"]));
-  organization.set("yiyuan", parseInt(content["yiyuan"]));
+  if (content["jiguan"] != null) {
+    organization.set("jiguan", parseInt(content["jiguan"]));
+  }
+  if (content["guoyouqiye"] != null) {
+    organization.set("guoyouqiye", parseInt(content["guoyouqiye"]));
+  }
+  if (content["feigongjingji"] != null) {
+    organization.set("feigongjingji", parseInt(content["feigongjingji"]));
+  }
+  if (content["shehuizuzhi"] != null) {
+    organization.set("shehuizuzhi", parseInt(content["shehuizuzhi"]));
+  }
+  if (content["xuexiao"] != null) {
+    organization.set("xuexiao", parseInt(content["xuexiao"]));
+  }
+  if (content["yiyuan"] != null) {
+    organization.set("yiyuan", parseInt(content["yiyuan"]));
+  }
   await organization.save();
   ctx.redirect("/organization");
 });

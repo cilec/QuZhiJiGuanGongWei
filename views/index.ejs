@@ -17,7 +17,7 @@
       <h3>夷陵区区直机关工委基层党组织统计</h3>
     </div>
     <div class="row ">
-      <form class="form-horizontal" action="/organization" method="POST">
+      <form class="form-horizontal" onsubmit="return check()" action="/organization" method="POST">
         <div class="form-group">
           <label class="col-sm-2 control-label" for="selectUnit">请选择您所在的单位</label>
           <div class="col-sm-6">
@@ -85,35 +85,87 @@
           <th>学校党支部数</th>
           <th>医院党支部数</th>
         </tr>
-        <% for(let i=0; i<organization.length; i++) {%>
-          <tr>
-            <td>
-              <%= organization[i].get('name') %>
-            </td>
-            <td>10</td>
-            <td>
-              <%= organization[i].get('jiguan') %>
-            </td>
-            <td>
-              <%= organization[i].get('guoyouqiye') %>
-            </td>
-            <td>
-              <%= organization[i].get('feigongjingji') %>
-            </td>
-            <td>
-              <%= organization[i].get('shehuizuzhi') %>
-            </td>
-            <td>
-              <%= organization[i].get('xuexiao') %>
-            </td>
-            <td>
-              <%= organization[i].get('yiyuan') %>
-            </td>
-          </tr>
-          <% } %>
+        <% var jiguanTotal=0;var organizationTotal=0;var guoyouqiyeTotal=0;var feigongjingjiTotal=0;var shehuizuzhiTotal=0;var xuexiaoTotal=0;var yiyuanTotal=0 %>
+          <%    for(let i=0; i<organization.length; i++) {%>
+            <tr>
+              <td>
+                <%= organization[i].get('name') %>
+              </td>
+              <td>
+                <%organizationTotal=organizationTotal+organization[i].get('jiguan')+organization[i].get('guoyouqiye')+organization[i].get('shehuizuzhi')+organization[i].get('feigongjingji')+organization[i].get('xuexiao')+organization[i].get('yiyuan') %>
+                  <%= organization[i].get('jiguan')+organization[i].get('guoyouqiye')+organization[i].get('shehuizuzhi')+organization[i].get('feigongjingji')+organization[i].get('xuexiao')+organization[i].get('yiyuan') %>
+              </td>
+              <td>
+                <%jiguanTotal=jiguanTotal+organization[i].get('jiguan') %>
+                  <%= organization[i].get('jiguan') %>
+              </td>
+              <td>
+                <%guoyouqiyeTotal=guoyouqiyeTotal+organization[i].get('guoyouqiye') %>
+                  <%= organization[i].get('guoyouqiye') %>
+              </td>
+              <td>
+
+                <%feigongjingjiTotal=feigongjingjiTotal+organization[i].get('feigongjingji') %>
+                  <%= organization[i].get('feigongjingji') %>
+              </td>
+              <td>
+
+                <%shehuizuzhiTotal=shehuizuzhiTotal+organization[i].get('shehuizuzhi') %>
+                  <%= organization[i].get('shehuizuzhi') %>
+              </td>
+              <td>
+                <%xuexiaoTotal=xuexiaoTotal+organization[i].get('xuexiao') %>
+                  <%= organization[i].get('xuexiao') %>
+              </td>
+              <td>
+                <%yiyuanTotal=yiyuanTotal+organization[i].get('yiyuan') %>
+                  <%= organization[i].get('yiyuan') %>
+              </td>
+            </tr>
+            <% } %>
+              <tr>
+                <td>合计</td>
+                <td>
+                  <%=organizationTotal%>
+                </td>
+                <td>
+                  <%=jiguanTotal%>
+                </td>
+                <td>
+                  <%=guoyouqiyeTotal%>
+                </td>
+                <td>
+                  <%=feigongjingjiTotal%>
+                </td>
+                <td>
+                  <%=shehuizuzhiTotal%>
+                </td>
+                <td>
+                  <%=xuexiaoTotal%>
+                </td>
+                <td>
+                  <%=yiyuanTotal%>
+                </td>
+              </tr>
+
       </table>
     </div>
   </div>
+  <script type="text/javascript"> 
+    function check() {
+      var jiguan = document.getElementById('jiguan').value;
+      var guoyouqiye = document.getElementById('guoyouqiye').value;
+      var feigongjingji = document.getElementById('feigongjingji').value;
+      var shehuizuzhi = document.getElementById('shehuizuzhi').value;
+      var xuexiao = document.getElementById('xuexiao').value;
+      var yiyuan = document.getElementById('yiyuan').value;
+      if (jiguan == "" && guoyouqiye == "" && feigongjingji == "" && shehuizuzhi == "" && xuexiao == "" && yiyuan == "") {
+        alert("请不要提交空表")
+        return false;
+      }
+      return true;
+    }
+  </script>
 </body>
 
 </html>
